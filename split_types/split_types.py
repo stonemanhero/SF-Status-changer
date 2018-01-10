@@ -10,7 +10,7 @@ def prepare_mapping():
     with open('input/types.csv', 'rb') as f:
         reader = csv.DictReader(f)
         for row in reader:
-            status_map[row['Status']] = row['Type']
+            status_map[row['Status'].strip()] = row['Type']
 
     return status_map
 
@@ -38,15 +38,15 @@ def main():
 
                     for row in lead_reader:
                         # If status start with DL send row to Opportunity
-                        if row['DISPOSITION_TYPE__C'][0:2] == "DL":
+                        if row['DISPOSITION_TYPE__C'].strip()[0:2] == "DL":
                             opportunity_writer.writerow(row)
                             print str(counter) + ' --> Opportunity'
                         else:
-                            if row['DISPOSITION_TYPE__C'] in status_map:
-                                if status_map[row['DISPOSITION_TYPE__C']] == "lead":
+                            if row['DISPOSITION_TYPE__C'].strip() in status_map:
+                                if status_map[row['DISPOSITION_TYPE__C'].strip()] == "lead":
                                     lead_writer.writerow(row)
                                     print str(counter) + ' --> Lead'
-                                elif status_map[row['DISPOSITION_TYPE__C']] == "opportunity":
+                                elif status_map[row['DISPOSITION_TYPE__C'].strip()] == "opportunity":
                                     opportunity_writer.writerow(row)
                                     print str(counter) + ' --> Opportunity'
                                 else:
