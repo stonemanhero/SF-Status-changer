@@ -22,3 +22,7 @@ split_types/output/leads_output\.csv
 split_types/output/nontype_output\.csv
 
 split_types/output/opportunity_output\.csv
+
+*.csv
+
+*.csv#
