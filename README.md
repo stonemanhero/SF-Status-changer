@@ -16,3 +16,6 @@
   -- THINGS MUST TO KNOW --
   *every status witch start with DL will go to Opportunity!!!
   *output folder must be created before script runs
+
+3. process_lead_c
+    -

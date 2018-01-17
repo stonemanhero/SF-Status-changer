@@ -140,8 +140,8 @@ def main(fieldnames_param):
                 if value[PARTIAL_PAYMENT_DATE + str(i) + C_SUFFIX] != "":
                     procced_status = True
 
-                if value[XERO_CONTACTID + str(i) + C_SUFFIX] != "":
-                    procced_status = True
+                #if value[XERO_CONTACTID + str(i) + C_SUFFIX] != "":
+                #    procced_status = True
 
                 if procced_status:
                     output_lead = {
